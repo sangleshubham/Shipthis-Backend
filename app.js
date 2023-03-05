@@ -3,12 +3,25 @@ import route from "./routes/rounter.js";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
+import expressFlash from "express-flash";
+import expressSession from "express-session";
+import passport from "passport";
 
 // configuration
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
+// app.use(expressFlash)
+app.use(
+  expressSession({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // auto access static folders so we can use /css/code.css
 app.use(express.static("public"));
