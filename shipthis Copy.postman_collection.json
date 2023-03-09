@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "c3e00a95-6380-4cf7-93b6-a40992bfa42e",
+		"name": "shipthis Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "helloworld",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://muddy-teal-waders.cyclic.app/",
+					"protocol": "https",
+					"host": [
+						"muddy-teal-waders",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://muddy-teal-waders.cyclic.app/movies?page=1",
+					"protocol": "https",
+					"host": [
+						"muddy-teal-waders",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"movies"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"shubham9@gmail.com\",\r\n    \"password\" : \"shubham9@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://muddy-teal-waders.cyclic.app/login",
+					"protocol": "https",
+					"host": [
+						"muddy-teal-waders",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"shubham9@2mail.com\",\r\n    \"password\" : \"shubham9@\",\r\n    \"age\" : 23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://muddy-teal-waders.cyclic.app/register",
+					"protocol": "https",
+					"host": [
+						"muddy-teal-waders",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
