@@ -13,6 +13,13 @@ export async function getMovies(req, res) {
 
   // 1. get paginated list - 15 items a list
   // 2. if age < 18 no TV-MA rated movies
+  let user = (await req.user)
+  if(!user)
+  {
+    // not autheticated
+    res.send({message: 'failed'}).status(401)
+    return 
+  }
 
       const page = parseInt(req.query.page)
       const limit = 15
@@ -57,7 +64,8 @@ export async function getMovies(req, res) {
 export async function register(req, res) {
   let username = req.body.username;
   let password = req.body.password;
-  let age = req.body.age;
+  let age = parseInt(req.body.age);
+  console.log(req.body)
   console.log(username, password, age);
   try {
     const userData = await userModel.create({ username, password, age });
