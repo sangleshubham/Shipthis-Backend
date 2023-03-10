@@ -34,10 +34,8 @@ app.use(express.static("public"));
 
 const whitelist = ['http://localhost:4200', 'https://monkey-tie.cyclic.app'];
 
-
-
 app.use(cors({
-  origin: 'http://localhost:4200', // "true" will copy the domain of the request back
+  origin: true, // "true" will copy the domain of the request back
                 // to the reply. If you need more control than this
                 // use a function.
 

@@ -27,7 +27,7 @@ route.post('/register', checkNotAuthenticated, register)
 // API
 route.get('/', checkAuthetication , getHello)
 
-route.get('/movies' ,  getMovies)
+route.get('/movies' ,  checkAuthetication, getMovies)
 
 
 export default route
