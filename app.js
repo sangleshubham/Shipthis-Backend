@@ -12,7 +12,7 @@ dotenv.config();
 const PORT = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
-app.options('*', cors())
+app.options('https://monkey-tie.cyclic.app', cors())
 // app.use(expressFlash)
 app.use(
   expressSession({
@@ -36,30 +36,19 @@ const whitelist = ['http://localhost:4200', 'https://monkey-tie.cyclic.app'];
 
 
 
-const corsOptions = {
-  credentials: true, // This is important.
-  origin: (origin, callback) => {
-    if(whitelist.includes(origin))
-      return callback(null, true)
+app.use(cors({
+  origin: 'https://monkey-tie.cyclic.app', // "true" will copy the domain of the request back
+                // to the reply. If you need more control than this
+                // use a function.
 
-      callback(new Error('Not allowed by CORS'));
-  }
-}
+  credentials: true, // This MUST be "true" if your endpoint is
+                     // authenticated via either a session cookie
+                     // or Authorization header. Otherwise the
+                     // browser will block the response.
 
-
-// app.use(cors({
-//   origin: true, // "true" will copy the domain of the request back
-//                 // to the reply. If you need more control than this
-//                 // use a function.
-
-//   credentials: true, // This MUST be "true" if your endpoint is
-//                      // authenticated via either a session cookie
-//                      // or Authorization header. Otherwise the
-//                      // browser will block the response.
-
-//   methods: 'POST,GET,PUT,OPTIONS,DELETE' // Make sure you're not blocking
-//                                          // pre-flight OPTIONS requests
-// }));
+  methods: ['POST','GET'] // Make sure you're not blocking
+                                         // pre-flight OPTIONS requests
+}));
 
 // routes mapping
 app.use("/", route);
