@@ -12,6 +12,7 @@ dotenv.config();
 const PORT = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
+app.options('*', cors())
 // app.use(expressFlash)
 app.use(
   expressSession({
