@@ -32,14 +32,14 @@ app.use(passport.session());
 // auto access static folders so we can use /css/code.css
 app.use(express.static("public"));
 
-const whitelist = ['http://localhost:4200', 'http://example2.com'];
+const whitelist = ['http://localhost:4200', 'https://monkey-tie.cyclic.app'];
 
 
 
 const corsOptions = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
-    if(true)
+    if(whitelist.includes(origin))
       return callback(null, true)
 
       callback(new Error('Not allowed by CORS'));
