@@ -12,7 +12,7 @@ dotenv.config();
 const PORT = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
-app.options('https://monkey-tie.cyclic.app', cors())
+app.options('http://localhost:4200', cors())
 // app.use(expressFlash)
 app.use(
   expressSession({
@@ -37,7 +37,7 @@ const whitelist = ['http://localhost:4200', 'https://monkey-tie.cyclic.app'];
 
 
 app.use(cors({
-  origin: 'https://monkey-tie.cyclic.app', // "true" will copy the domain of the request back
+  origin: 'http://localhost:4200', // "true" will copy the domain of the request back
                 // to the reply. If you need more control than this
                 // use a function.
 
